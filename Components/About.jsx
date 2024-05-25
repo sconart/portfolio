@@ -1,5 +1,5 @@
 import { makeStyles } from "@mui/styles";
-import image from "../images/vibrant_energy_fusion.png";
+import image from "../images/motion-background.jpg";
 
 const useStyles = makeStyles(() => ({
   root: {

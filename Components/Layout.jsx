@@ -22,13 +22,13 @@ export default function Layout() {
           </MuiLink>
         </Typography>
         <Typography variant="h6" sx={{ color: 'black' }}>
-          <MuiLink component={Link} to="/education" color="inherit" underline="none" sx={{ color: 'black' }}>
-            Education
+          <MuiLink component={Link} to="/services" color="inherit" underline="none" sx={{ color: 'black' }}>
+            Services
           </MuiLink>
         </Typography>
         <Typography variant="h6" sx={{ color: 'black' }}>
-          <MuiLink component={Link} to="/project" color="inherit" underline="none" sx={{ color: 'black' }}>
-            Project
+          <MuiLink component={Link} to="/projects" color="inherit" underline="none" sx={{ color: 'black' }}>
+            Projects
           </MuiLink>
         </Typography>
         <Typography variant="h6" sx={{ color: 'black' }}>
