@@ -20,7 +20,7 @@ const Home = ({ name, title }) => {
 };
 
 Home.defaultProps = {
-  name: "Alexandrie Grenier",
+  name: "Thanh Tran",
   title: "Software Developer",
 };
 

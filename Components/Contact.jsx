@@ -57,9 +57,9 @@ const Contact = () => {
   const classes = useStyles();
 
   const siteProps = {
-    name: "Alexandrie Grenier",
+    name: "Thanh Tran",
     title: "Web Designer & Content Creator",
-    email: "alex@example.com",
+    email: "ttran@example.com",
     gitHub: "microsoft",
     instagram: "microsoft",
     linkedIn: "satyanadella",
