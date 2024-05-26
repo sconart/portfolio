@@ -28,7 +28,7 @@ const useStyles = makeStyles(() => ({
   },
   content: {
     position: "relative",
-    backgroundColor: "white",
+    backgroundColor: "#FF928B",
     width: "60%",
     padding: "4rem",
     textAlign: "center",
