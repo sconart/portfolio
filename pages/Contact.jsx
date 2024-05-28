@@ -51,6 +51,35 @@ const useStyles = makeStyles(() => ({
     fontSize: "1rem",
     color: "#555",
   },
+  form: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    marginTop: "2rem",
+  },
+  input: {
+    width: "80%",
+    padding: "1rem",
+    margin: "0.5rem 0",
+    fontSize: "1rem",
+  },
+  textarea: {
+    width: "80%",
+    padding: "1rem",
+    margin: "0.5rem 0",
+    fontSize: "1rem",
+    height: "100px",
+  },
+  button: {
+    width: "80%",
+    padding: "1rem",
+    margin: "1rem 0",
+    fontSize: "1rem",
+    backgroundColor: "#000",
+    color: "#fff",
+    border: "none",
+    cursor: "pointer",
+  },
 }));
 
 const Contact = () => {
@@ -69,10 +98,16 @@ const Contact = () => {
   };
 
   return (
-    <section className={classes.root} id="contact" >
+    <section className={classes.root} id="contact">
       <img className={classes.background} src={image} alt="background" />
       <div className={classes.content}>
         <h2>Contact</h2>
+        <form className={classes.form}>
+          <input type="text" className={classes.input} placeholder="Your Name" />
+          <input type="email" className={classes.input} placeholder="Your Email" />
+          <textarea className={classes.textarea} placeholder="Your Message"></textarea>
+          <button type="submit" className={classes.button}>Send Message</button>
+        </form>
         <div className={classes.socialLinks}>
           {siteProps.gitHub && (
             <a href={`https://github.com/${siteProps.gitHub}`} target="_blank" rel="noopener noreferrer">

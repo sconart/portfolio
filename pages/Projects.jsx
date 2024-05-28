@@ -1,5 +1,5 @@
 import { makeStyles } from "@mui/styles";
-import { Card, CardContent, CardActionArea, Typography } from "@mui/material";
+import { Card, CardContent, CardActionArea, Typography, Grow } from "@mui/material";
 import image from "../images/motion-background.jpg";
 
 const useStyles = makeStyles(() => ({
@@ -11,6 +11,7 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    background: "rgba(0, 0, 0, 0.7)",
   },
   background: {
     position: "absolute",
@@ -23,11 +24,12 @@ const useStyles = makeStyles(() => ({
   },
   content: {
     position: "relative",
-    backgroundColor: "#ffffff",
+    backgroundColor: "rgba(255, 255, 255, 0.85)",
     width: "60%",
-    padding: "4rem",
+    padding: "3rem",
     textAlign: "center",
-    zIndex: 1,
+    borderRadius: "10px",
+    boxShadow: "0 8px 16px rgba(0, 0, 0, 0.3)",
   },
   projectList: {
     display: "grid",
@@ -36,6 +38,12 @@ const useStyles = makeStyles(() => ({
     margin: "2rem 0",
   },
   projectItem: {
+    borderRadius: "10px",
+    transition: "transform 0.3s, box-shadow 0.3s",
+    "&:hover": {
+      transform: "translateY(-10px)",
+      boxShadow: "0 16px 32px rgba(0, 0, 0, 0.2)",
+    },
     "& a": {
       textDecoration: "none",
     },
@@ -74,19 +82,21 @@ const Projects = () => {
       <div className={classes.content}>
         <h2>Projects</h2>
         <div className={classes.projectList}>
-          {projectList.map((project) => (
-            <Card className={classes.projectItem} key={project.title}>
-              <CardActionArea href={project.url} target="_blank" rel="noopener noreferrer">
-                <CardContent>
-                  <Typography variant="h5" component="h3">
-                    {project.title}
-                  </Typography>
-                  <Typography variant="body2" component="p">
-                    {project.description}
-                  </Typography>
-                </CardContent>
-              </CardActionArea>
-            </Card>
+          {projectList.map((project, index) => (
+            <Grow in={true} timeout={1000 + index * 300} key={project.title}>
+              <Card className={classes.projectItem}>
+                <CardActionArea href={project.url} target="_blank" rel="noopener noreferrer">
+                  <CardContent>
+                    <Typography variant="h5" component="h3">
+                      {project.title}
+                    </Typography>
+                    <Typography variant="body2" component="p">
+                      {project.description}
+                    </Typography>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </Grow>
           ))}
         </div>
       </div>

@@ -1,4 +1,5 @@
 import { makeStyles } from "@mui/styles";
+import { Card, CardContent, Typography, Grow } from "@mui/material";
 import image from "../images/motion-background.jpg";
 
 const useStyles = makeStyles(() => ({
@@ -10,6 +11,7 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    background: "rgba(0, 0, 0, 0.7)",
   },
   background: {
     position: "absolute",
@@ -22,24 +24,25 @@ const useStyles = makeStyles(() => ({
   },
   content: {
     position: "relative",
-    backgroundColor: "#ffffff",
-    width: "60%",
-    padding: "4rem",
+    backgroundColor: "rgba(255, 255, 255, 0.85)",
+    width: "80%",
+    padding: "3rem",
     textAlign: "center",
-    zIndex: 1,
+    borderRadius: "10px",
+    boxShadow: "0 8px 16px rgba(0, 0, 0, 0.3)",
   },
   serviceList: {
-    textAlign: "left",
-    fontSize: "1.25rem",
-    margin: "2rem 0",
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill, minmax(250px, 1fr))",
+    gap: "2rem",
+    marginTop: "2rem",
   },
   serviceItem: {
-    margin: "1rem 0",
-    "& h3": {
-      marginBottom: "0.5rem",
-    },
-    "& p": {
-      marginBottom: "1rem",
+    borderRadius: "10px",
+    transition: "transform 0.3s, box-shadow 0.3s",
+    "&:hover": {
+      transform: "translateY(-10px)",
+      boxShadow: "0 16px 32px rgba(0, 0, 0, 0.2)",
     },
   },
 }));
@@ -76,13 +79,21 @@ const Services = () => {
     <section className={classes.root} id="services">
       <img className={classes.background} src={image} alt={imageAltText} />
       <div className={classes.content}>
-        <h2>Services</h2>
+        <h2>Our Services</h2>
         <div className={classes.serviceList}>
-          {serviceList.map((service) => (
-            <div className={classes.serviceItem} key={service.title}>
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-            </div>
+          {serviceList.map((service, index) => (
+            <Grow in={true} timeout={1000 + index * 300} key={service.title}>
+              <Card className={classes.serviceItem}>
+                <CardContent>
+                  <Typography variant="h5" component="h3">
+                    {service.title}
+                  </Typography>
+                  <Typography variant="body2" component="p">
+                    {service.description}
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grow>
           ))}
         </div>
       </div>
