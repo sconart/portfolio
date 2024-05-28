@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from "react";
 import { makeStyles } from "@mui/styles";
 import image from "../images/motion-background.jpg";
 import gitHubIcon from "../images/socials/github.svg";
@@ -80,10 +81,19 @@ const useStyles = makeStyles(() => ({
     border: "none",
     cursor: "pointer",
   },
+  successBox: {
+    marginTop: "2rem",
+    padding: "1rem",
+    backgroundColor: "#dff0d8",
+    color: "#3c763d",
+    borderRadius: "5px",
+    border: "1px solid #d6e9c6",
+  },
 }));
 
 const Contact = () => {
   const classes = useStyles();
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const siteProps = {
     name: "Thanh Tran",
@@ -97,12 +107,32 @@ const Contact = () => {
     youTube: "Code",
   };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Here you can add your form submission logic
+    setIsSubmitted(true);
+  };
+
+  useEffect(() => {
+    if (isSubmitted) {
+      const timer = setTimeout(() => {
+        setIsSubmitted(false);
+      }, 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [isSubmitted]);
+
   return (
     <section className={classes.root} id="contact">
       <img className={classes.background} src={image} alt="background" />
       <div className={classes.content}>
         <h2>Contact</h2>
-        <form className={classes.form}>
+        {isSubmitted && (
+          <div className={classes.successBox}>
+            Your message has been sent successfully!
+          </div>
+        )}
+        <form className={classes.form} onSubmit={handleSubmit}>
           <input type="text" className={classes.input} placeholder="Your Name" />
           <input type="email" className={classes.input} placeholder="Your Email" />
           <textarea className={classes.textarea} placeholder="Your Message"></textarea>
