@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@mui/styles";
+import { Card, CardContent, CardActionArea, Typography, Grow } from "@mui/material";
 import image from "../images/motion-background.jpg";
 import gitHubIcon from "../images/socials/github.svg";
 import instagramIcon from "../images/socials/instagram.svg";
@@ -17,6 +18,7 @@ const useStyles = makeStyles(() => ({
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
+    background: "rgba(0, 0, 0, 0.7)",
   },
   background: {
     position: "absolute",
@@ -29,28 +31,12 @@ const useStyles = makeStyles(() => ({
   },
   content: {
     position: "relative",
-    backgroundColor: "#ffffff",
+    backgroundColor: "rgba(255, 255, 255, 0.85)",
     width: "60%",
-    padding: "4rem",
+    padding: "3rem",
     textAlign: "center",
-    zIndex: 1,
-  },
-  socialLinks: {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    flexWrap: "wrap",
-    margin: "2rem 0",
-  },
-  socialIcon: {
-    width: "40px",
-    height: "40px",
-    margin: "0 1rem",
-  },
-  footerText: {
-    marginTop: "2rem",
-    fontSize: "1rem",
-    color: "#555",
+    borderRadius: "10px",
+    boxShadow: "0 8px 16px rgba(0, 0, 0, 0.3)",
   },
   form: {
     display: "flex",
@@ -80,6 +66,11 @@ const useStyles = makeStyles(() => ({
     color: "#fff",
     border: "none",
     cursor: "pointer",
+    transition: "background-color 0.3s, transform 0.3s",
+    "&:hover": {
+      backgroundColor: "#444",
+      transform: "translateY(-5px)",
+    },
   },
   successBox: {
     marginTop: "2rem",
@@ -88,6 +79,28 @@ const useStyles = makeStyles(() => ({
     color: "#3c763d",
     borderRadius: "5px",
     border: "1px solid #d6e9c6",
+  },
+  socialLinks: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    flexWrap: "wrap",
+    margin: "2rem 0",
+  },
+  socialIcon: {
+    width: "40px",
+    height: "40px",
+    margin: "0 1rem",
+    transition: "transform 0.3s, box-shadow 0.3s",
+    "&:hover": {
+      transform: "translateY(-5px)",
+      boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
+    },
+  },
+  footerText: {
+    marginTop: "2rem",
+    fontSize: "1rem",
+    color: "#555",
   },
 }));
 
@@ -140,34 +153,46 @@ const Contact = () => {
         </form>
         <div className={classes.socialLinks}>
           {siteProps.gitHub && (
-            <a href={`https://github.com/${siteProps.gitHub}`} target="_blank" rel="noopener noreferrer">
-              <img src={gitHubIcon} alt="GitHub" className={classes.socialIcon} />
-            </a>
+            <Grow in={true} timeout={1000}>
+              <a href={`https://github.com/${siteProps.gitHub}`} target="_blank" rel="noopener noreferrer">
+                <img src={gitHubIcon} alt="GitHub" className={classes.socialIcon} />
+              </a>
+            </Grow>
           )}
           {siteProps.instagram && (
-            <a href={`https://www.instagram.com/${siteProps.instagram}`} target="_blank" rel="noopener noreferrer">
-              <img src={instagramIcon} alt="Instagram" className={classes.socialIcon} />
-            </a>
+            <Grow in={true} timeout={1300}>
+              <a href={`https://www.instagram.com/${siteProps.instagram}`} target="_blank" rel="noopener noreferrer">
+                <img src={instagramIcon} alt="Instagram" className={classes.socialIcon} />
+              </a>
+            </Grow>
           )}
           {siteProps.linkedIn && (
-            <a href={`https://www.linkedin.com/in/${siteProps.linkedIn}`} target="_blank" rel="noopener noreferrer">
-              <img src={linkedInIcon} alt="LinkedIn" className={classes.socialIcon} />
-            </a>
+            <Grow in={true} timeout={1600}>
+              <a href={`https://www.linkedin.com/in/${siteProps.linkedIn}`} target="_blank" rel="noopener noreferrer">
+                <img src={linkedInIcon} alt="LinkedIn" className={classes.socialIcon} />
+              </a>
+            </Grow>
           )}
           {siteProps.medium && (
-            <a href={`https://medium.com/@${siteProps.medium}`} target="_blank" rel="noopener noreferrer">
-              <img src={mediumIcon} alt="Medium" className={classes.socialIcon} />
-            </a>
+            <Grow in={true} timeout={1900}>
+              <a href={`https://medium.com/@${siteProps.medium}`} target="_blank" rel="noopener noreferrer">
+                <img src={mediumIcon} alt="Medium" className={classes.socialIcon} />
+              </a>
+            </Grow>
           )}
           {siteProps.twitter && (
-            <a href={`https://twitter.com/${siteProps.twitter}`} target="_blank" rel="noopener noreferrer">
-              <img src={twitterIcon} alt="Twitter" className={classes.socialIcon} />
-            </a>
+            <Grow in={true} timeout={2200}>
+              <a href={`https://twitter.com/${siteProps.twitter}`} target="_blank" rel="noopener noreferrer">
+                <img src={twitterIcon} alt="Twitter" className={classes.socialIcon} />
+              </a>
+            </Grow>
           )}
           {siteProps.youTube && (
-            <a href={`https://www.youtube.com/c/${siteProps.youTube}`} target="_blank" rel="noopener noreferrer">
-              <img src={youTubeIcon} alt="YouTube" className={classes.socialIcon} />
-            </a>
+            <Grow in={true} timeout={2500}>
+              <a href={`https://www.youtube.com/c/${siteProps.youTube}`} target="_blank" rel="noopener noreferrer">
+                <img src={youTubeIcon} alt="YouTube" className={classes.socialIcon} />
+              </a>
+            </Grow>
           )}
         </div>
         <p className={classes.footerText}>

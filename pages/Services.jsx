@@ -66,6 +66,11 @@ const serviceList = [
       "Designing intuitive and engaging user interfaces to enhance user experience and satisfaction.",
   },
   {
+    title: "Database Services",
+    description:
+      "Offering comprehensive database services that are scalable, secure, and optimized for performance and production",
+  },
+  {
     title: "Cloud Services",
     description:
       "Providing cloud integration, deployment, and management services to scale your applications efficiently.",
