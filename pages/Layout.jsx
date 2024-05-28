@@ -4,7 +4,7 @@ import image from '../images/logo.png';
 
 export default function Layout() {
   return (
-    <AppBar position="fixed" sx={{ background: '#9e9e9e', boxShadow: 'none' }}>
+    <AppBar position="fixed" sx={{ background: '#d8d8d8', boxShadow: 'none' }}>
       <Toolbar sx={{ justifyContent: 'center', gap: '2rem' }}>
         <IconButton edge="start" color="inherit" aria-label="logo">
           <Link to="/">

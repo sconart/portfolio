@@ -1,10 +1,10 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "../Components/Home";
-import About from "../Components/About";
-import Contact from "../Components/Contact";
-import Services from "../Components/Services";
-import Projects from "../Components/Projects";
-import Layout from "../Components/Layout";
+import Home from "../pages/Home";
+import About from "../pages/About";
+import Contact from "../pages/Contact";
+import Services from "../pages/Services";
+import Projects from "../pages/Projects";
+import Layout from "../pages/Layout";
 
 const MainRouter = () => {
   return (

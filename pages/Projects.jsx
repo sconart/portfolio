@@ -1,4 +1,5 @@
 import { makeStyles } from "@mui/styles";
+import { Card, CardContent, CardActionArea, Typography } from "@mui/material";
 import image from "../images/motion-background.jpg";
 
 const useStyles = makeStyles(() => ({
@@ -22,28 +23,21 @@ const useStyles = makeStyles(() => ({
   },
   content: {
     position: "relative",
-    backgroundColor: "white",
+    backgroundColor: "#ffffff",
     width: "60%",
     padding: "4rem",
     textAlign: "center",
     zIndex: 1,
   },
   projectList: {
-    textAlign: "left",
-    fontSize: "1.25rem",
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
+    gap: "2rem",
     margin: "2rem 0",
   },
   projectItem: {
-    margin: "1rem 0",
-    "& h3": {
-      marginBottom: "0.5rem",
-    },
     "& a": {
       textDecoration: "none",
-      color: "inherit",
-    },
-    "& a:hover": {
-      textDecoration: "underline",
     },
   },
 }));
@@ -54,7 +48,7 @@ const projectList = [
   {
     title: "10 Things To Know About Azure Static Web Apps 🎉",
     description:
-      "Collaboration to create a beginner friendly article to help explain Azure Static Web Apps and tooling to get started.",
+      "Collaboration to create a beginner friendly article to help explain Azure Static Web Apps and tooling for beginners to get started.",
     url: "https://dev.to/azure/10-things-to-know-about-azure-static-web-apps-3n4i",
   },
   {
@@ -64,15 +58,9 @@ const projectList = [
     url: "https://github.com/microsoft/web-dev-for-beginners",
   },
   {
-    title: "My Resume Site",
-    description:
-      "Created from Microsoft's resume workshop and deployed to GitHub pages. Includes my experience and design abilities.",
-    url: "https://github.com/microsoft/workshop-library/tree/main/full/build-resume-website",
-  },
-  {
     title: "GitHub Codespaces and github.dev",
     description:
-      "Video interview to explain when to use GitHub.dev versus GitHub Codespaces, and how best to use each tool.",
+      "Video interview to explain when to use GitHub.dev versus GitHub Codespaces, and how best to use each tool for work and study.",
     url: "https://www.youtube.com/watch?v=c3hHhRME_XI",
   },
 ];
@@ -87,12 +75,18 @@ const Projects = () => {
         <h2>Projects</h2>
         <div className={classes.projectList}>
           {projectList.map((project) => (
-            <div className={classes.projectItem} key={project.title}>
-              <a href={project.url} target="_blank" rel="noopener noreferrer">
-                <h3>{project.title}</h3>
-              </a>
-              <p>{project.description}</p>
-            </div>
+            <Card className={classes.projectItem} key={project.title}>
+              <CardActionArea href={project.url} target="_blank" rel="noopener noreferrer">
+                <CardContent>
+                  <Typography variant="h5" component="h3">
+                    {project.title}
+                  </Typography>
+                  <Typography variant="body2" component="p">
+                    {project.description}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
           ))}
         </div>
       </div>
